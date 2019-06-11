@@ -10,6 +10,5 @@ if (!empty($_GET['country'])){ // Check if input isn't empty
 	$stmt->bindParam(':country', $country); // bind variable
 	$stmt->execute(); // Execute on server
 	header('Location: index.php'); // Redirect to main page after form submitted
-	
 }
 ?>

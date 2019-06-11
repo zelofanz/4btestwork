@@ -1,8 +1,8 @@
 <?php
 include("insert.php");
+include("delete_edit.php");
 error_reporting();
 $stmt = $pdo->query("SELECT * FROM country");
-$stmt->execute(); // Execute on server
 ?>
 
 <html>
@@ -28,9 +28,9 @@ $stmt->execute(); // Execute on server
 				<td><?php echo $row['id']; ?></td>
 				<td><?php echo $row['name']; ?></td>
 				<td>
-					<a href="delete_edit.php?edit=<?php echo $row['id']; ?>"
+					<a href="index.php?edit=<?php echo $row['id']; ?>"
 						class="btn btn-info">Edit</a>
-					<a href="delete_edit.php?delete=<?php echo $row['id']; ?>"
+					<a href="delete.php?delete=<?php echo $row['id']; ?>"
 						class="btn btn-danger">Delete</a>
 				</td>
 			</tr>
@@ -42,7 +42,7 @@ $stmt->execute(); // Execute on server
 <form action="insert.php" method="">
 <div class="form-group">
 <label>Название страны</label>
-<input type="text" name="country" class="form-control" style="text-align:center;" value=""/>
+<input type="text" name="country" class="form-control" style="text-align:center;" value="<?php echo $currentEditCountryName; ?>"/>
 </div>
 <div class="form-group">
 <input type="submit" name="submit" class="form-control" value="Добавить новую страну"/>

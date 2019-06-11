@@ -7,7 +7,4 @@ if (!empty($_GET['delete'])){ // Check if input isn't empty
 	$stmt = $pdo->query("DELETE FROM country WHERE id=$id");
 	header('Location: index.php'); // Redirect to main page after deleted
 }
-
-
-
 ?>
