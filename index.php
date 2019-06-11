@@ -2,6 +2,7 @@
 include("insert.php");
 error_reporting();
 $stmt = $pdo->query("SELECT * FROM country");
+$stmt->execute(); // Execute on server
 ?>
 
 <html>
@@ -18,6 +19,7 @@ $stmt = $pdo->query("SELECT * FROM country");
 			<tr>
 				<th>ID</th>
 				<th>Страна</th>
+				<th></th>
 			</tr>
 		</thead>
 		
@@ -25,6 +27,12 @@ $stmt = $pdo->query("SELECT * FROM country");
 			<tr>
 				<td><?php echo $row['id']; ?></td>
 				<td><?php echo $row['name']; ?></td>
+				<td>
+					<a href="delete_edit.php?edit=<?php echo $row['id']; ?>"
+						class="btn btn-info">Edit</a>
+					<a href="delete_edit.php?delete=<?php echo $row['id']; ?>"
+						class="btn btn-danger">Delete</a>
+				</td>
 			</tr>
 		<?php endwhile; ?>
 	</table>
