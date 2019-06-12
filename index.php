@@ -1,7 +1,8 @@
 <?php
 include("insert.php");
 error_reporting();
-$stmt = $pdo->query("SELECT * FROM country");
+$stmt = $pdo->prepare("SELECT * FROM country");
+$stmt->execute(); // Execute on server
 ?>
 
 <html>
